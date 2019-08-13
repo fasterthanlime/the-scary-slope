@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<MPD xmlns="urn:mpeg:DASH:schema:MPD:2011" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="dynamic" availabilityStartTime="2019-08-13T00:20:34Z" publishTime="2019-08-13T00:20:34Z" minimumUpdatePeriod="PT30S" minBufferTime="PT3S" timeShiftBufferDepth="PT120S">
+	<Analytics statslink="https://video.steamstatic.com/broadcast/1676097720074619796/stats/playerstats/?l=37&amp;e=1565701418&amp;h=85770ab6bea7dba1dacc75dea42510547e6f4ade" stalledlink="https://video.steamstatic.com/broadcast/1676097720074619796/stats/stallreport/?l=37&amp;e=1565701418&amp;h=85770ab6bea7dba1dacc75dea42510547e6f4ade"/>
+	<Period id="1" start="PT0S">
+		<AdaptationSet id="video" segmentAlignment="true" startWithSAP="1" maxWidth="800" maxHeight="450">
+			<ContentComponent id="1" contentType="video" />
+			<Role schemeIdUri="urn:mpeg:DASH:role:2011" value="main" />
+			<SegmentTemplate timescale="1000" duration="2000" startNumber="1" media="https://steambroadcast.akamaized.net/broadcast/76561198026695312/1676097720074619796/segment/video/$RepresentationID$/$Number$/?broadcast_origin=repo-01-lax1.broadcast.steamcontent.com:80" initialization="https://steambroadcast.akamaized.net/broadcast/76561198026695312/1676097720074619796/segment/video/$RepresentationID$/init/?broadcast_origin=repo-01-lax1.broadcast.steamcontent.com:80" />
+			<Representation id="1" mimeType="video/mp4" codecs="avc1.64001e" startWithSAP="1" bandwidth="2500000" frameRate="23" width="800" height="450">
+			</Representation>
+		</AdaptationSet>
+		<AdaptationSet id="audio" segmentAlignment="true" startWithSAP="1" lang="und">
+			<ContentComponent id="1" contentType="audio" />
+			<Role schemeIdUri="urn:mpeg:DASH:role:2011" value="main" />
+			<SegmentTemplate timescale="1000" duration="2000" startNumber="1" media="https://steambroadcast.akamaized.net/broadcast/76561198026695312/1676097720074619796/segment/audio/$RepresentationID$/$Number$/?broadcast_origin=repo-01-lax1.broadcast.steamcontent.com:80" initialization="https://steambroadcast.akamaized.net/broadcast/76561198026695312/1676097720074619796/segment/audio/$RepresentationID$/init/?broadcast_origin=repo-01-lax1.broadcast.steamcontent.com:80" />
+			<Representation id="1" mimeType="audio/mp4" codecs="mp4a.40.2" audioSamplingRate="44100" startWithSAP="1" bandwidth="128000">
+			</Representation>
+		</AdaptationSet>
+	</Period>
+</MPD>

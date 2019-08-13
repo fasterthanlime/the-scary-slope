@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>The scary slope</title>
+    <script src="./index.tsx"></script>
+    <style>
+      canvas {
+        /* width: 1000px; */
+        /* width: 2000px; */
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+
+      #source-image {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="source-image" src="thumbnail.jpg" />
+    <div id="app"></div>
+  </body>
+</html>
