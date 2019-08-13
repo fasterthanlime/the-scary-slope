@@ -29,9 +29,7 @@ class App extends React.PureComponent<{}, State> {
   constructor(props) {
     super(props);
     this.state = {
-      // width: 449, // also interesting: 337
-      // width: 432,
-      width: 674,
+      width: 449,
       xskip: 0
     };
 
@@ -129,21 +127,34 @@ class App extends React.PureComponent<{}, State> {
         y++;
       }
 
-      let [r, g, b, a] = [
-        rgb[i * 4 + 0],
-        rgb[i * 4 + 1],
-        rgb[i * 4 + 2],
-        rgb[i * 4 + 3]
+      let [r, g, b] = [
+        rgb[i * 3 + 0],
+        rgb[i * 3 + 1],
+        rgb[i * 3 + 2],
       ];
 
-      // const fillStyle = `rgb(${r}, ${r}, ${r})`;
-      // ctx.fillStyle = fillStyle;
-      // ctx.fillRect(Math.floor(x), Math.floor(y), 1, 1);
       let offset = (x + y * width) * 4;
       destRGBA[offset] = r;
       destRGBA[offset + 1] = g;
       destRGBA[offset + 2] = b;
       destRGBA[offset + 3] = 255;
+
+            if (r > 128) {
+             destRGBA[offset + 0] = 255;
+destRGBA[offset + 1] = 0;
+  destRGBA[offset + 2] = 0;
+      destRGBA[offset + 3] = 255;
+    } else if (g > 128) {
+    destRGBA[offset + 0] = 0; 
+  destRGBA[offset + 1] = 255;
+    destRGB[offset + 2] = 0;
+  destRGBA[offset + 3] = 255;
+} else if (b > 128) {
+   destRGBA[offset + 0] = 0;
+        destRGBA[offset + 1] = 0;
+        destRGBA[offset + 2] = 255;
+        destRGBA[offset + 3] = 0;
+      }
     }
     ctx.putImageData(imageData, 0, 0);
   }
