@@ -3,22 +3,44 @@
     <title>The scary slope</title>
     <script src="./index.tsx"></script>
     <style>
-      canvas {
-        /* width: 1000px; */
-        /* width: 2000px; */
-        image-rendering: -moz-crisp-edges;
-        image-rendering: -webkit-crisp-edges;
-        image-rendering: pixelated;
-        image-rendering: crisp-edges;
+      body {
+        background: #333;
+        color: #fafafa;
       }
 
-      #source-image {
+      canvas {
+        border: 4px dashed white;
+
+        /* image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges; */
+      }
+
+      .controls {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+      }
+
+      .controls .group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .controls input {
+        margin-left: 20px;
+      }
+
+      img.hide {
         display: none;
       }
     </style>
   </head>
   <body>
-    <img id="source-image" src="thumbnail.jpg" />
+    <img class="hide" id="src-image" src="thumbnail.jpg" />
+    <img class="hide" id="ref-image" src="goodthumb.jpg" />
     <div id="app"></div>
   </body>
 </html>
