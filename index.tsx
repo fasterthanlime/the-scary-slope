@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 
 const MAX_WIDTH = 800;
-const SCALE_FACTOR = 10000;
+const SCALE_FACTOR = 100000;
 
 let resources: { src: HTMLImageElement; ref: HTMLImageElement } = {
   src: null,
@@ -51,9 +51,9 @@ class App extends React.PureComponent<{}, State> {
   constructor(props) {
     super(props);
     this.state = {
-      scale: 1 * SCALE_FACTOR,
-      width: 417,
-      skipx: 32,
+      scale: 1.02173 * SCALE_FACTOR,
+      width: 459,
+      skipx: 52,
       alpha: 0.1,
     };
   }
@@ -62,19 +62,19 @@ class App extends React.PureComponent<{}, State> {
     return (
       <div>
         <div className="controls">
-          <div className="group">
+          <label className="group">
             <input
               type="range"
               min={1 * SCALE_FACTOR}
-              max={1.2 * SCALE_FACTOR}
+              max={1.1 * SCALE_FACTOR}
               value={this.state.scale}
               onChange={ev =>
                 this.setState({ scale: ev.currentTarget.valueAsNumber })
               }
             />
             <span>Scale: {this.state.scale / SCALE_FACTOR}</span>
-          </div>
-          <div className="group">
+          </label>
+          <label className="group">
             <input
               type="range"
               min={32}
@@ -85,8 +85,8 @@ class App extends React.PureComponent<{}, State> {
               }
             />
             <span>Width: {this.state.width}px</span>
-          </div>
-          <div className="group">
+          </label>
+          <label className="group">
             <input
               type="range"
               min={0}
@@ -97,8 +97,8 @@ class App extends React.PureComponent<{}, State> {
               }
             />
             <span>Skip X: {this.state.skipx}px</span>
-          </div>
-          <div className="group">
+          </label>
+          <label className="group">
             <input
               type="range"
               min={0}
@@ -109,7 +109,7 @@ class App extends React.PureComponent<{}, State> {
               }
             />
             <span>Alpha: {this.state.alpha}</span>
-          </div>
+          </label>
         </div>
         <canvas ref={this.gotCanvas} width={MAX_WIDTH} height={400} />
       </div>
@@ -164,6 +164,7 @@ class App extends React.PureComponent<{}, State> {
 
     let width = this.state.width;
     let skipx = this.state.skipx;
+    width -= skipx;
 
     let rgb = new Uint8ClampedArray((rgba.length / 4) * 3);
     for (let i = 0; i < rgba.length / 4; i++) {
@@ -179,7 +180,7 @@ class App extends React.PureComponent<{}, State> {
       x += 1;
       if (x >= width) {
         i += skipx;
-        x -= width;
+        x = 0;
         y++;
       }
 
